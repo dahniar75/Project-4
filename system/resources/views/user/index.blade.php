@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -16,6 +16,7 @@
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
+
 
 <body>
     <div id="wrapper">
@@ -206,19 +207,19 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu" href="dashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        <a class="active-menu" href="index"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
                         <a href="{{url('/produk')}}"><i class="fa fa-desktop"></i>Produk</a>
                     </li>
-                    <li>
+          <li>
                         <a href="grafik"><i class="fa fa-bar-chart-o"></i>Grafik Penjualan </a>
                     </li>
                     <li>
-                        <a href="{{url('/user')}}"><i class="fa fa-user"></i>user</a>
+                        <a href="profil"><i class="fa fa-user"></i>user</a>
                     </li>
-
             </div>
+
 
         </nav>
         <!-- /. NAV SIDE  -->
@@ -235,11 +236,51 @@
                         <h4>Ini Halaman Dashbord</h4>
                     </div>
                 </div>
+                <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-md-12 mt-5">
+                          <div class="card">
+                            <div class="card-header">
+                                Data User
+                                <a href="{{url('user/create')}}" class="btn btn-dark float-right"><i class="fa fa-plus"></i> Tambah Data </a>
+                            </div>
+                            <div class="card-bdoy">
+                                <table class="table">
+                                    <thead>
+                                        <th>No</th>
+                                        <th>Aksi</th>
+                                        <th>Nama</th>
+                                        <th>Username</th>
+                                         <th>Email</th>
+
+                                    </thead>
+                                    <tbody>
+                                    @foreach($list_user as $user)
+                                        <tr>
+                                            <td>{{$loop->iteration}}</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                <a href="{{url('user', $user->id)}}" class="btn btn-dark"><i class="fa fa-info"></i></a>
+                                                <a href="{{url('user', $user->id)}}/edit" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                                @include('template.utils.delete', ['url' => url('user', $user->id)])
+                                            </td>
+                                            <td>{{$user->nama}}</td>
+                                            <td>{{$user->username}}</td>
+                                            <td>{{$user->email}}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
                 <!-- /. ROW  -->
 
 
                </div>
-                <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p></footer>
+        <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p></footer>
             </div>
             <!-- /. PAGE INNER  -->
         </div>

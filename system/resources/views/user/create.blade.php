@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -15,6 +15,9 @@
     <link href="{{('public')}}/assets/css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -206,41 +209,62 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu" href="dashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        <a class="active-menu" href="index"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="{{url('/produk')}}"><i class="fa fa-desktop"></i>Produk</a>
+                        <a href="{{url('/produk')}}"><i class="fa fa-desktop"></i> Produk</a>
                     </li>
-                    <li>
+					<li>
                         <a href="grafik"><i class="fa fa-bar-chart-o"></i>Grafik Penjualan </a>
                     </li>
                     <li>
-                        <a href="{{url('/user')}}"><i class="fa fa-user"></i>user</a>
+                        <a href="profil"><i class="fa fa-user"></i>User</a>
                     </li>
-
-            </div>
-
-        </nav>
-        <!-- /. NAV SIDE  -->
-        <div id="page-wrapper">
-            <div id="page-inner">
-
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="page-header">
-                            Dashboard <small>
-                            Selamat Datang di Rustic Garden</small>
-                        </h1>
-                        <h4>Ini Halaman Dashbord</h4>
-                    </div>
+                    </ul>
                 </div>
-                <!-- /. ROW  -->
+                        <div id="layoutSidenav_content">
+                    <div class="container-fluid">
+                        <h1 class="mt-4"></h1>
+                  <div class="container">
+                      <div class="row">
+                        <div class="col-md-12 mt-5">
+                          <div class="card">
+                            <div class="card-header">
+                              Tambah Data User
+                                </div>
+                            <div class="card-body">
+                                <form action="{{url('user')}}" method="post">
+                                    @csrf
+                                <div class="from-group">
+                                    <label for="" class="control-label">Nama</label>
+                                    <input type="text" class="form-control" name="nama">
+                            </div>
+                            <div class="from-group">
+                                    <label for="" class="control-label">Username</label>
+                                    <input type="text" class="form-control" name="username">
+                            </div>
+                            <div class="from-group">
+                                    <label for="" class="control-label">Email</label>
+                                    <input type="text" class="form-control" name="email">
+                            </div>
+                            <div class="from-group">
+                                    <label for="" class="control-label">Password</label>
+                                    <input type="text" class="form-control" name="password">
+                            </div>
+                       
+                    </div>
+                            
+                            <button class="btn btn-dark float-right"><i class="fa fa-save"></i>Simpan</button>
+                    </div>
+                    </form>
+          </div>
+      </div>
+  </div>
+        <!-- /. NAV SIDE  -->
+     
 
-
-               </div>
-                <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p></footer>
-            </div>
+               
+				
             <!-- /. PAGE INNER  -->
         </div>
         <!-- /. PAGE WRAPPER  -->
@@ -258,7 +282,6 @@
     <script src="{{('public')}}/assets/js/morris/morris.js"></script>
     <!-- Custom Js -->
     <script src="{{('public')}}/assets/js/custom-scripts.js"></script>
-
 
 </body>
 

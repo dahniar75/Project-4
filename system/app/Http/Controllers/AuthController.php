@@ -11,7 +11,9 @@ class Authcontroller extends Controller
 
    }
 
-   function processLogin(){
+  function loginProcess(){
+      dd(request()->all());
+
 
    }
 
